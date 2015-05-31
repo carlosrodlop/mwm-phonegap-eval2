@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!-- Include jQuery Mobile stylesheets -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <!-- Include the jQuery library -->
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <!-- Include the jQuery Mobile library -->
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <!-- Include the Google Maps library -->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Eval2</title>
+    </head>
+    <body>
+        <div data-role="page" id="homePage">
+            <div data-theme="a" data-role="header">
+                <p></p>
+                <h2>
+                    Carlos Rodriguez Lopez,
+                    <br/> BSc in Environmental Science
+                    <br/> VET in Software Development
+                    <br/> MSc in Geographic Information Systems
+                    <br/> MSc in Web and Mobile Software Development
+                </h2>
+                <p></p>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li>
+                            <!--Transición recomendables en navbar: slide, slideup, slidedown, fade or none--> 
+                            <a href="#homePage" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Home
+                            </a>
+
+                        </li>
+                        <li> <a href="#mapPage" data-theme="" data-icon="" onclick="loadMap();" data-transition="none">
+                                Map
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <div data-role="collapsible-set" data-theme="b" data-content-theme="">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>Vibrate it!!</h3>
+                        <p>
+                      		<button onclick="app.vibrate();">
+                    			Vibrate <small>Enabled</small>
+                  			</button>
+                        </p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>How many times have you visit this site</h3>
+                        <p>
+                        <p id="veces"></p>
+                        <input type="button" value="Refrescar página" onClick="location.reload(true);" />
+                        <input type="button" value="Borrar LocalStorage" 
+                               onClick="localStorage.removeItem('contadorPagina');
+                                       location.reload(true);"/> 
+                        </p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>About me</h3>
+                        <p>
+                        <p>I am a Software Analyst and Developer with a scientific and technological background. My expertise are the technologies behind Geographic Information Systems (GIS), however I am open to work on other fields of Software Engineering where I can express my creativeness, such as Web Portals where I am gaining more experience recently.</p>
+                        <p>My career started in 2006 in United Kingdom, where I had the chance to work as Data Analyst in international environments. Two years and a half later, I moved back to Spain where I have focused more on Software Analyst and Development.</p>  
+                        <p>Regarding projects, I have worked for a wide range of sectors such as Transport, Civil Engineering, Environment, Telecom, Energy and Territorial Planning. From all them, I would like to highlight The Olympics 2012, iCOM (Software Suite for Aeronautical operations), Jeddah Strategic Development Plan, Spatial Data Infrastructure (SDI) for the Cuenca Municipality and the Transport Network Design for the Beijing Financial District.</p>
+                        <p>As Software Analyst and Developer I feel comfortable with JAVA, JSP, JSF, PL/PgSQL, HTML5 and JavaScript. While as Data Analyst I am familiarized with studies of Spatial/3D and Networks.  I also would like to mention that I am used to work under Agile Methodologies (SCRUM) and I am follower of Open Spatial Consortium (OGC) standards and OSGeo projects.</p>
+                        </p>
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>About this web</h3>
+                        <p>
+                            This a web counts the number of times you visit it 
+                            and also to locate yourself as a marker on a Google Maps
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End of Home Page -->
+        <div data-role="page" id="mapPage">
+            <div data-theme="a" data-role="header">
+                <p></p>
+                <h2>
+                    Carlos Rodriguez Lopez,
+                    <br/> BSc in Environmental Science
+                    <br/> VET in Software Development
+                    <br/> MSc in Geographic Information Systems
+                    <br/> MSc in Web and Mobile Software Development
+                </h2>
+
+                <p></p>
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li> <a href="#homePage" data-theme="" data-icon="" data-transition="none">
+                                Home
+                            </a>
+
+                        </li>
+                        <li> <a href="#mapPage" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">
+                                Map
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content" class="center-wrapper">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                    	<div id="map-canvas"></div>
+                    </div>
+                    <div class="ui-block-a">
+                   		<p id="coordenadas"></p>
+                   	</div>
+                </div>
+            </div>
+        </div> <!-- End of Map Page -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            geolocateMe();
+        </script>
+    </body>
+</html>
